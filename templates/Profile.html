@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ann Nafula G · Profile Details</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ---------- Global reset & base ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: #f9f5f0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* ---------- main wrapper ---------- */
+        .main-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem 3rem;
+            flex: 1;
+            width: 100%;
+        }
+
+        /* ---------- top bar ---------- */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-area h1 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            color: #4a2c2a;
+            line-height: 1.2;
+        }
+
+        .logo-area h1 i {
+            color: #d45b6b;
+            margin-right: 8px;
+            font-size: 1.6rem;
+        }
+
+        .logo-area .subhead {
+            font-size: 0.85rem;
+            color: #9e6b6b;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            border: 1px solid #e6d7d2;
+            padding: 0.55rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #4a2c2a;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+            text-decoration: none;
+        }
+
+        .back-btn i {
+            color: #b3566b;
+        }
+
+        .back-btn:hover {
+            background: #fceaea;
+            border-color: #d45b6b;
+            transform: translateY(-1px);
+        }
+
+        /* ---------- profile card ---------- */
+        .profile-card {
+            background: white;
+            border-radius: 40px;
+            box-shadow: 0 18px 35px -10px rgba(0, 0, 0, 0.08);
+            border: 1px solid #f1e2de;
+            padding: 2.5rem 2.5rem 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 2.2rem;
+        }
+
+        .profile-header .avatar-icon {
+            width: 80px;
+            height: 80px;
+            background: #fceaea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            border: 2px solid #f0d9d9;
+        }
+
+        .profile-header .avatar-icon i {
+            font-size: 2.4rem;
+            color: #d45b6b;
+        }
+
+        .profile-header h2 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: #2e1c1a;
+            letter-spacing: -0.5px;
+            line-height: 1.3;
+        }
+
+        .profile-header h2 .highlight {
+            color: #d45b6b;
+            background: #fef0f0;
+            padding: 0.1rem 0.8rem;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+        .profile-header p {
+            font-size: 1rem;
+            color: #8f6b6b;
+            margin-top: 0.6rem;
+        }
+
+        .profile-header p i {
+            color: #d45b6b;
+            margin-right: 6px;
+        }
+
+        /* ---------- form styling ---------- */
+        .details-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .form-row {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-row label {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: #4a2c2a;
+            letter-spacing: 0.3px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-row label i {
+            color: #d45b6b;
+            font-size: 1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .input-field {
+            display: flex;
+            align-items: center;
+            background: #fefaf9;
+            border: 1.5px solid #eedbd6;
+            border-radius: 60px;
+            padding: 0.15rem 1.2rem;
+            transition: 0.2s;
+        }
+
+        .input-field:focus-within {
+            border-color: #d45b6b;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(212, 91, 107, 0.08);
+        }
+
+        .input-field i {
+            color: #b98a8a;
+            font-size: 1rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .input-field input,
+        .input-field select {
+            width: 100%;
+            border: none;
+            background: transparent;
+            padding: 0.8rem 0.5rem;
+            font-size: 0.98rem;
+            color: #2e1c1a;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .input-field select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b98a8a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 0.2rem center;
+            background-size: 1.2rem;
+        }
+
+        .input-field input::placeholder {
+            color: #b29494;
+            font-weight: 400;
+            font-size: 0.93rem;
+        }
+
+        /* ---------- two columns for some fields ---------- */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+        }
+
+        /* ---------- submit button ---------- */
+        .btn-submit {
+            background: #d45b6b;
+            border: none;
+            width: 100%;
+            padding: 1rem;
+            border-radius: 60px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 8px 18px rgba(212, 91, 107, 0.3);
+            margin-top: 0.8rem;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-submit i {
+            font-size: 1.2rem;
+        }
+
+        .btn-submit:hover {
+            background: #b84455;
+            box-shadow: 0 10px 22px rgba(212, 91, 107, 0.4);
+            transform: scale(1.01);
+        }
+
+        /* ---------- note / validation hint ---------- */
+        .validation-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #a18181;
+            margin-top: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: #fef7f5;
+            padding: 0.6rem 1rem;
+            border-radius: 50px;
+            border: 1px dashed #f0d9d9;
+        }
+
+        .validation-note i {
+            color: #d45b6b;
+        }
+
+        /* ---------- footer ---------- */
+        .footer-note {
+            text-align: center;
+            padding: 2rem 1rem 1.5rem;
+            color: #a18181;
+            font-size: 0.9rem;
+            border-top: 1px solid #f0e0dc;
+            margin-top: 2rem;
+        }
+
+        .footer-note i {
+            color: #d45b6b;
+            margin: 0 4px;
+        }
+
+        /* ---------- responsive ---------- */
+        @media (max-width: 700px) {
+            .main-wrapper {
+                padding: 1rem 1.2rem 2rem;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+            }
+
+            .logo-area h1 {
+                font-size: 1.4rem;
+            }
+
+            .profile-card {
+                padding: 1.8rem 1.4rem;
+                border-radius: 30px;
+            }
+
+            .profile-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .btn-submit {
+                font-size: 1rem;
+                padding: 0.9rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .profile-header h2 {
+                font-size: 1.3rem;
+            }
+
+            .input-field input,
+            .input-field select {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-wrapper">
+        <!-- top bar with back button -->
+        <header class="top-bar">
+            <div class="logo-area">
+                <h1>
+                    <i class="fa-regular fa-heart"></i> Ann Nafula G
+                </h1>
+                <div class="subhead">profile setup · step 2</div>
+            </div>
+
+            <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back</a>
+        </header>
+
+        <!-- profile card -->
+        <div class="profile-card">
+            <div class="profile-header">
+                <div class="avatar-icon">
+                    <i class="fa-regular fa-user"></i>
+                </div>
+                <h2>𝐊𝐈𝐍𝐃𝐋𝐘 𝐕𝐀𝐋𝐈𝐃𝐀𝐓𝐄 𝐘𝐎𝐔𝐑 𝐃𝐄𝐓𝐀𝐈𝐋𝐒</h2>
+                <p><i class="fa-regular fa-pen-to-square"></i> please fill in accurately — all fields matter</p>
+            </div>
+
+            <!-- details form -->
+            <form class="details-form" id="profileForm">
+                <!-- Name -->
+                <div class="form-row">
+                    <label for="fullName"><i class="fa-regular fa-user"></i> 𝐍𝐚𝐦𝐞</label>
+                    <div class="input-field">
+                        <i class="fa-regular fa-signature"></i>
+                        <input type="text" id="fullName" placeholder="Enter your full name" required>
+                    </div>
+                </div>
+
+                <!-- Country -->
+                <div class="form-row">
+                    <label for="country"><i class="fa-solid fa-globe"></i> 𝐜𝐨𝐮𝐧𝐭𝐫𝐲</label>
+                    <div class="input-field">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <input type="text" id="country" placeholder="e.g., Kenya, Nigeria, South Africa" required>
+                    </div>
+                </div>
+
+                <!-- Age + Kids in two-column grid -->
+                <div class="form-grid">
+                    <div class="form-row">
+                        <label for="age"><i class="fa-regular fa-calendar"></i> 𝐀𝐠𝐞</label>
+                        <div class="input-field">
+                            <i class="fa-regular fa-cake-candles"></i>
+                            <input type="number" id="age" placeholder="Age" min="18" max="99" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="kids"><i class="fa-solid fa-children"></i> 𝐤𝐢𝐝𝐬</label>
+                        <div class="input-field">
+                            <i class="fa-regular fa-child"></i>
+                            <select id="kids" required>
+                                <option value="" disabled selected>Select</option>
+                                <option value="0">No kids</option>
+                                <option value="1">1 child</option>
+                                <option value="2">2 children</option>
+                                <option value="3">3 children</option>
+                                <option value="4">4+ children</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Occupation -->
+                <div class="form-row">
+                    <label for="occupation"><i class="fa-solid fa-briefcase"></i> 𝐎𝐜𝐜𝐮𝐩𝐚𝐭𝐢𝐨𝐧</label>
+                    <div class="input-field">
+                        <i class="fa-regular fa-building"></i>
+                        <input type="text" id="occupation" placeholder="e.g., Teacher, Engineer, Business owner" required>
+                    </div>
+                </div>
+
+                <!-- HIV status -->
+                <div class="form-row">
+                    <label for="hivStatus"><i class="fa-solid fa-notes-medical"></i> 𝐇𝐈𝐕 𝐬𝐭𝐚𝐭𝐮𝐬</label>
+                    <div class="input-field">
+                        <i class="fa-solid fa-shield-heart"></i>
+                        <select id="hivStatus" required>
+                            <option value="" disabled selected>Select status</option>
+                            <option value="negative">Negative</option>
+                            <option value="positive">Positive</option>
+                            <option value="undisclosed">Prefer not to say</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- validation hint -->
+                <div class="validation-note">
+                    <i class="fa-regular fa-circle-check"></i> Please double-check your details before submitting
+                </div>
+
+                <!-- submit -->
+                <button type="submit" class="btn-submit">
+                    <i class="fa-regular fa-heart"></i> Save & continue
+                </button>
+            </form>
+        </div>
+
+        <!-- footer -->
+        <div class="footer-note">
+            <i class="fa-regular fa-copyright"></i> 2025 Ann Nafula G Dating Site · your privacy matters <i class="fa-solid fa-heart" style="color:#d45b6b;"></i>
+        </div>
+    </div>
+<script>
+document.getElementById('profileForm').addEventListener('submit',function(e){
+ e.preventDefault();const profile={};
+ ['fullName','country','age','kids','occupation','hivStatus'].forEach(id=>profile[id]=document.getElementById(id).value);
+ sessionStorage.setItem('annNafulaProfile',JSON.stringify(profile));location.href='Package.html';
+});
+</script></body>
+</html>
